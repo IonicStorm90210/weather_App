@@ -74,9 +74,9 @@ async function createHTMLDiv() {
                                 <h5>Three Day Forecast</h5>
                                 <div id="listForecast" class="listForecast">
 
-                                    <div class="list One">Today: ${tempData} ${weatherCondData}</div>
-                                    <div class="list Two">Tomorrow: ${tempFuture1} ${weathCond1}</div>
-                                    <div class="list Three">After: ${tempFuture2} ${weathCond2}</div>
+                                <div class="list One"><ul><li>Today:</li> <li>${weatherCondData}</li> <li>${tempData}</li></ul></div>
+                                <div class="list Two"><ul>${dayNames[tomorrow]}:</li> <li>${weathCond1}</li> <li>${tempFuture1}</li></ul></div>
+                                <div class="list Three"><ul>${dayNames[after]}:</li> <li>${weathCond2}</li> <li>${tempFuture2}</li></ul></div>
 
                                 </div>
                             </div>`;
@@ -84,6 +84,14 @@ async function createHTMLDiv() {
     
     return
     
+}
+
+function getDays() {
+    const date = new Date();
+    today = date.getDay()
+    tomorrow = today + 1
+    after = today + 2
+    return tomorrow, after;
 }
 
 async function weatherGif(feelsLike) {
